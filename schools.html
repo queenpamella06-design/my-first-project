@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rwanda Private Schools</title>
+<style>
+body {margin:0;font-family:Arial;background:#f4f6f9;}
+header {background:#2c3e50;color:white;padding:15px;text-align:center;}
+.container {padding:20px;}
+.login-box {max-width:400px;margin:80px auto;background:white;padding:20px;border-radius:10px;box-shadow:0 2px 5px rgba(0,0,0,0.2);} 
+.login-box input {width:100%;padding:10px;margin:10px 0;border:1px solid #ccc;border-radius:5px;}
+.btn {padding:10px;background:#27ae60;color:white;border:none;border-radius:5px;cursor:pointer;width:100%;}
+.schools {display:none;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+.card {background:white;padding:15px;border-radius:10px;box-shadow:0 2px 5px rgba(0,0,0,0.1);} 
+.search-box input {padding:10px;width:100%;margin-bottom:20px;}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Rwanda Private Schools Platform</h1>
+</header>
+
+<div class="login-box" id="loginBox">
+<h2>Login</h2>
+<input type="text" id="username" placeholder="Enter username">
+<input type="password" id="password" placeholder="Enter password">
+<button class="btn" onclick="login()">Login</button>
+<p id="error" style="color:red"></p>
+</div>
+
+<div class="container" id="mainContent" style="display:none;">
+<div class="search-box">
+<input type="text" id="search" placeholder="Search schools..." onkeyup="searchSchools()">
+</div>
+
+<div class="schools" id="schoolList" style="display:grid;">
+
+<div class="card">
+<h3>Green Hills Academy</h3>
+<p>Email: info@greenhillsacademy.rw</p>
+<p>Phone: +250787227601</p>
+<p>Fees: 3.8M - 7.6M RWF</p>
+<p>Performance: International excellence</p>
+</div>
+
+<div class="card">
+<h3>International School of Kigali</h3>
+<p>Phone: +250788179600</p>
+<p>Fees: 6M - 20M+ RWF</p>
+<p>Performance: High global standards</p>
+</div>
+
+<div class="card">
+<h3>St Ignatius High School</h3>
+<p>Fees: Mid-range</p>
+<p>Performance: Strong national exams</p>
+</div>
+
+<div class="card">
+<h3>Lycee de Kigali</h3>
+<p>Fees: Affordable</p>
+<p>Performance: Top national results</p>
+</div>
+
+<div class="card">
+<h3>Kigali Parents School</h3>
+<p>Fees: Mid-high</p>
+<p>Performance: Good academic performance</p>
+</div>
+
+<div class="card">
+<h3>Excella School</h3>
+<p>Fees: High</p>
+<p>Performance: Strong Cambridge results</p>
+</div>
+
+<div class="card">
+<h3>Acorns International School</h3>
+<p>Fees: High</p>
+<p>Performance: Early childhood excellence</p>
+</div>
+
+</div>
+</div>
+
+<script>
+function login() {
+let user = document.getElementById('username').value;
+let pass = document.getElementById('password').value;
+
+if(user === "admin" && pass === "1234"){
+ document.getElementById('loginBox').style.display = "none";
+ document.getElementById('mainContent').style.display = "block";
+}else{
+ document.getElementById('error').innerText = "Invalid login details";
+}
+}
+
+function searchSchools(){
+let input = document.getElementById('search').value.toLowerCase();
+let cards = document.getElementsByClassName('card');
+for(let i=0;i<cards.length;i++){
+ let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+ cards[i].style.display = title.includes(input) ? 'block' : 'none';
+}
+}
+</script>
+
+</b
